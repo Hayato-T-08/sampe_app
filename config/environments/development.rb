@@ -62,4 +62,12 @@ Rails.application.configure do
   
     # Cloud9 への接続を許可する
   config.hosts.clear
+  
+  config.action_mailer.raise_delivery_errors = false
+
+  host = '303c802c1cf94565b13ede75fc2adebe.vfs.cloud9.us-west-1.amazonaws.com' # ここをコピペすると失敗します。自分の環境のホストに変えてください。
+  # クラウドIDEの場合は以下をお使いください
+  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+  # localhostで開発している場合は以下をお使いください
+  # config.action_mailer.default_url_options = { host: host, protocol: 'http' }
 end
