@@ -4,7 +4,7 @@ class UsersActivationTest < ActionDispatch::IntegrationTest
   
   def setup
     @user = users(:michael)
-    @non_activated_user = users(:red)
+    @non_activated_user = users(:hayato)
   end
 
   test "index only activated user" do
@@ -18,7 +18,7 @@ class UsersActivationTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get user_path(@user)
     get user_path(@non_activated_user)
-    #assert_redirected_to root_url
+    assert_redirected_to root_url
   end
 
 end
